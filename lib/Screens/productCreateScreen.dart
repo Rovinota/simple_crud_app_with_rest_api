@@ -29,30 +29,72 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                     onChanged: (value) {},
                     decoration: AppinputDeceration('Product Name'),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     onChanged: (value) {},
                     decoration: AppinputDeceration('Product Code'),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     onChanged: (value) {},
                     decoration: AppinputDeceration('Product Image'),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     onChanged: (value) {},
                     decoration: AppinputDeceration('Unit Price'),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     onChanged: (value) {},
                     decoration: AppinputDeceration('Total Price'),
                   ),
-                  const SizedBox(height: 10,),
-                  ElevatedButton(
-                    
-                    onPressed: (){}, child: Text("Add"),)
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  AppDropdownstyle(
+                    DropdownButton(
+                        value: "1 pcs",
+                        items: [
+                          DropdownMenuItem(
+                            child: Text("Select Qt"),
+                            value: "",
+                          ),
+                          DropdownMenuItem(
+                            child: Text("1 pcs"),
+                            value: "1 pcs",
+                          ),
+                          DropdownMenuItem(
+                            child: Text("2 pcs"),
+                            value: "2 pcs",
+                          ),
+                          DropdownMenuItem(
+                            child: Text("3 pcs"),
+                            value: "3 pcs",
+                          ),
+                          DropdownMenuItem(
+                            child: Text("4 pcs"),
+                            value: "4 pcs",
+                          ),
+                        ],
+                        isExpanded: true,
+                        underline: Container(),
+                        onChanged: (value) {}),
+                  ),
+                  SizedBox(height: 10,),
+                  Container(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          style: Appbuttonstyle(),
+                          onPressed: (){}, child: Text("Submit"))),
                 ],
               ),
             ),

@@ -36,3 +36,24 @@ InputDecoration AppinputDeceration(Lebel) {
     labelText: Lebel,
   );
 }
+DecoratedBox AppDropdownstyle (child) {
+  return DecoratedBox(decoration: BoxDecoration(
+    color: ColourWhite,
+    border: Border.all(color: ColourDarkBlue, width: 1),
+    borderRadius: BorderRadius.circular(4),
+
+  ),
+    child: Padding(
+      padding: EdgeInsets.only(left: 30, right: 30),
+      child: child,
+    ),
+  );
+}
+ButtonStyle Appbuttonstyle () {
+  return ElevatedButton.styleFrom(
+    elevation: 1,
+    padding: EdgeInsets.all(0),
+    backgroundColor: Colors.transparent,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6), )
+  );
+}
