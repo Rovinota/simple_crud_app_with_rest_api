@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 const ColourRed = Color.fromRGBO(231, 28, 36, 1);
 const ColourGreen = Color.fromRGBO(33, 191, 115, 1);
@@ -55,5 +56,47 @@ ButtonStyle Appbuttonstyle () {
     padding: EdgeInsets.all(0),
     backgroundColor: Colors.transparent,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6), )
+  );
+}
+
+Ink SuccessButtonChild (ButtonText) {
+  return Ink(
+    decoration: BoxDecoration(
+      color: ColourGreen,
+      borderRadius: BorderRadius.circular(6),
+    ),
+    child: Container(
+      height: 45,
+      alignment: Alignment.center,
+      child: Text(ButtonText, style: const TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 15,
+        color: ColourWhite,
+      ),),
+    ),
+  );
+}
+
+void errorToast(msg) {
+  Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: ColourRed,
+      textColor: ColourWhite,
+      fontSize: 16.0
+  );
+}
+
+void SuccessToast(msg) {
+  Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: ColourGreen,
+      textColor: ColourWhite,
+      fontSize: 16.0
   );
 }
