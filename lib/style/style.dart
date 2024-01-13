@@ -100,3 +100,10 @@ void SuccessToast(msg) {
       fontSize: 16.0
   );
 }
+
+SliverGridDelegateWithFixedCrossAxisCount ProductGridviewStyle () {
+  return SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+  mainAxisSpacing: 2,
+    mainAxisExtent: 250,
+  );
+}

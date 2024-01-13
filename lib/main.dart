@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_crud_app_with_rest_api/Screens/productCreateScreen.dart';
+import 'package:simple_crud_app_with_rest_api/Screens/productGridViewScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ProductCreateScreen(),
+      home: const ProductGridviewScreen(),
     );
   }
 }

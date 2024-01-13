@@ -12,6 +12,7 @@ class ProductCreateScreen extends StatefulWidget {
 }
 
 class _ProductCreateScreenState extends State<ProductCreateScreen> {
+  bool Loading = false;
   Map<String, String> Formvalues = {
     "Img": "",
     "ProductCode": "",
@@ -46,7 +47,14 @@ FormOnSubmit() async{
   }
   else {
     // Data Rest Api ... post
+    setState(() {
+      Loading = true;
+    });
    await ProductCreateRequest(Formvalues);
+
+   setState(() {
+     Loading = false;
+   });
   }
 }
   @override
@@ -60,7 +68,7 @@ FormOnSubmit() async{
         children: [
           ScreenBackground(context),
           Container(
-            child: SingleChildScrollView(
+            child: Loading ? (Center(child: CircularProgressIndicator(),)) : (SingleChildScrollView(
               padding: EdgeInsets.all(20),
               child: Column(
                 children: [
@@ -144,17 +152,17 @@ FormOnSubmit() async{
                     height: 10,
                   ),
                   Container(
-                      // width: double.infinity,
+                    // width: double.infinity,
                       child: ElevatedButton(
-                    style: Appbuttonstyle(),
-                    onPressed: () {
-                      FormOnSubmit();
-                    },
-                    child: SuccessButtonChild("Submit"),
-                  )),
+                        style: Appbuttonstyle(),
+                        onPressed: () {
+                          FormOnSubmit();
+                        },
+                        child: SuccessButtonChild("Submit"),
+                      )),
                 ],
               ),
-            ),
+            )),
           )
         ],
       ),
