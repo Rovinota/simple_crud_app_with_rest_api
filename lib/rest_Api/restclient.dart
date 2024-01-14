@@ -14,7 +14,7 @@ Future<bool> ProductCreateRequest (Formvalues) async {
   var ResultBody = json.decode(Responce.body);
 
   if (Resultcode == 200 && ResultBody['status'] == 'success') {
-      SuccessToast("Request Successfull");
+      SuccessToast("Product Create Successfully");
       return true;
   }
   else {
@@ -62,4 +62,24 @@ Future<void> ProductDeletRequest (id) async {
 
   }
 
+}
+
+Future<bool> ProductUpdateRequest (Formvalues, id) async {
+  var URL = Uri.parse("https://crud.teamrabbil.com/api/v1/UpdateProduct/" + id);
+  var PostBody = json.encode(Formvalues);
+  var PostHeader = {
+    "Content-Type" : "application/json"
+  };
+  var Responce = await http.post(URL, headers: PostHeader, body: PostBody);
+  var Resultcode = Responce.statusCode;
+  var ResultBody = json.decode(Responce.body);
+
+  if (Resultcode == 200 && ResultBody['status'] == 'success') {
+    SuccessToast("Update Successfully");
+    return true;
+  }
+  else {
+    errorToast("Request Fail!! Try Again!");
+    return false;
+  }
 }
